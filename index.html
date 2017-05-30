@@ -11,39 +11,46 @@
           $('#pokemon').append('<img src="http://pokeapi.co/media/img/'+i+'.png" id='+i+'>');
         }
 
-        $(document).on('click', 'img', function(){
+        $(document).on('click','img', function(){
           $.get('http://pokeapi.co/api/v2/pokemon/'+$(this).attr('id'), function(data){
             console.log(data);
 
-            var html_str = "";
-            html_str += "<h1>"+data.name+"</h1>";
-            html_str += '<img src="http://pokeapi.co/media/img/'+data.id+'.png">';
-            html_str += "<h2>Types</h2>";
-            html_str += "<ul>";
+            var html_str1 = "";
+            var html_str2 = "";
+            html_str1 += '<img src="http://pokeapi.co/media/img/'+data.id+'.png">';
+
+            html_str2 += "<h1>"+data.name+"</h1>";
+            html_str2 += "<h2>Types</h2>";
+            html_str2 += "<ul>";
 
             for(var i = 0; i < data.types.length; i++) {
-              html_str += "<li>"+data.types[i].type.name+"</li>";
+              html_str2 += "<li><span>"+data.types[i].type.name+"</span></li>";
             }
 
-            html_str += "</ul>";
-            html_str += "<h2>Height</h2>";
-            html_str += "<p>"+data.height+"</p>";
-            html_str += "<h2>Weight</h2>";
-            html_str += "<p>"+data.weight+"</p>";
+            html_str2 += "</ul>";
+            html_str2 += "<h2>Height</h2>";
+            html_str2 += "<p>"+data.height+"</p>";
+            html_str2 += "<h2>Weight</h2>";
+            html_str2 += "<p>"+data.weight+"</p>";
 
-            $('#selected').html(html_str);
-
-            // console.log(data.types[0].type.name);
+            $('#selected_img').html(html_str1);
+            $('#selected_stats').html(html_str2);
           }, 'json');
-        })
-      })
+        });
+      });
     </script>
   </head>
   <body>
     <div id="pokemon"></div><div id="wrapper">
+      <img src="images/logo.png" alt="Pokemon Logo" id="logo">
+      <img src="images/pokedex.png" alt="Pokedex Image" id="pokedex">
+      <div id="selected_img"></div>
+      <div id="selected_stats"></div>
+    </div>
+    <!-- <div id="wrapper">
       <div id="selected">
 
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
