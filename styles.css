@@ -1,0 +1,31 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+#pokemon{
+  width: 75%;
+  display: inline-block;
+}
+#wrapper{
+  width: 25%;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
+}
+#selected{
+  width: 50%;
+  vertical-align: top;
+  background-color: gray;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+#selected h1{
+  text-align: center;
+}
+#selected img{
+  margin: 0 auto;
+}
+#selected li{
+  list-style-position: inside;
+}
